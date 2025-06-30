@@ -1,0 +1,52 @@
+# Binaries
+*.exe
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Go build artifacts
+/build/
+/bin/
+/dist/
+*.log
+
+# Go module files
+/vendor/
+
+# Dependency directories (optional if you're vendoring)
+pkg/
+dep/
+
+# OS/macOS/Linux files
+.DS_Store
+Thumbs.db
+
+# Editor/IDE files
+.vscode/
+.idea/
+*.swp
+
+# Templ-generated files
+*.templ.go
+
+# Node modules (if using npm/Tailwind)
+node_modules/
+package-lock.json
+
+# Static output
+/static/css/*.css
+/static/css/*.css.map
+
+# Local tools/output
+.env
+.env.*
+*.local
+
+# Temp files
+*.tmp
+*.bak
+
+
+*templ.go

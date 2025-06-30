@@ -1,0 +1,42 @@
+package views
+
+templ Hero() {
+	<div class="hero bg-base-200 min-h-screen">
+		<div class="hero-content text-center">
+			<div class="max-w-md">
+				<h1 id="heroTitle" class="text-5xl font-bold">Hello there</h1>
+				<p class="py-6">
+					This site is a under construction. Come back soon!
+				</p>
+			</div>
+		</div>
+		<script>
+			function getRandomTime(minMs, maxMs) {
+				return Math.floor(Math.random() * (maxMs - minMs + 1)) + minMs;
+			}
+			window.onload = () => {
+				const titleElem = document.getElementById("heroTitle");
+				const greeting = "HELLO THERE...";
+				let i = 1;
+
+				function updateText() {
+					if (!titleElem) return;
+
+					if (i > greeting.length) {
+						i = 1;
+						setTimeout(updateText, 5000)
+						return
+					}
+
+					const str = greeting.substring(0, i);
+					titleElem.textContent = str ?? " ";
+					i++;
+
+					setTimeout(updateText, getRandomTime(100, 200)); 
+				}
+
+				updateText();
+			};
+		</script>
+	</div>
+}
