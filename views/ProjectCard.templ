@@ -1,0 +1,42 @@
+package views
+
+type cardDef struct {
+	Title         string
+	Tools         []string
+	SkillsLearned []string
+	Link          string
+	Img           string
+}
+
+templ ProjectCard(def cardDef) {
+	<div class="card card-border lg:card-side bg-base-200 shadow-sm">
+		<figure
+			class="w-2/5"
+		>
+			<img
+				src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmiro.medium.com%2Fv2%2Fresize%3Afit%3A1023%2F1*mzBM4oXXxGH5ZdYMXUQQHQ.jpeg&f=1&nofb=1&ipt=5a12fa0498018493af8122ac44e354157b5afebf87af3c4918fb19e41d6b6f14"
+				alt="Album"
+			/>
+		</figure>
+		<div class="card-body">
+			<h5 class="card-title text-3xl">{ def.Title }</h5>
+			<h1 class="text-xl font-semibold">Skills Learned:</h1>
+			<ul class="ml-5">
+				for _, skill := range def.SkillsLearned {
+					<li class="list-disc">{ skill }</li>
+				}
+			</ul>
+			<h1 class="text-xl font-semibold">Tools Used:</h1>
+			<ul class="ml-5">
+				for _, tool := range def.Tools {
+					<li class="list-disc">{ tool }</li>
+				}
+			</ul>
+			<div class="card-actions justify-end">
+				<a target="_blank" href={ templ.SafeURL(def.Link) }>
+					<button class="btn btn-primary">View</button>
+				</a>
+			</div>
+		</div>
+	</div>
+}

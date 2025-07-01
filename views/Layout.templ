@@ -13,9 +13,23 @@ templ Layout(title string) {
 			<link rel="stylesheet" href="/static/css/tw.css"/>
 			<title>{ title }</title>
 		</head>
-		<body>
+		<body class="min-h-screen flex flex-col">
 			@NavBar()
-			{ children... }
+			<main class="flex-1 bg-base">
+				{ children... }
+			</main>
+			@Footer()
 		</body>
+		<script>
+		function selectLink(id) {
+			for (const link of navLinks) {
+				link.classList.remove("text-secondary")
+				if (link.getAttribute('href') === '#' + id) {
+					console.log(link)
+					link.classList.add('text-secondary'); 
+				}
+			}
+		}
+		</script>
 	</html>
 }

@@ -1,0 +1,25 @@
+package views
+
+var cards = map[string]cardDef{
+	"compiler": {
+		Title: "Compiler",
+		Tools: []string{"Golang", "NASM"},
+		SkillsLearned: []string{
+			"Compiler design and construction",
+			"Parsing and code generation",
+			"Systems programming in Go",
+			"Working with assembly concepts",
+			"Cross-compilation techniques",
+			"File I/O and process management in Go",
+		},
+		Link: "https://github.com/BrysonUrie/nasm-compiler",
+		Img:  "",
+	},
+}
+
+templ Projects() {
+	<div id="projects" class="my-5 text-5xl divider text-primary divider-primary divider-vertical divider-start">PROJECTS</div>
+	<div class="space-y-3">
+		@ProjectCard(cards["compiler"])
+	</div>
+}

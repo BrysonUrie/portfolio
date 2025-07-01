@@ -1,16 +1,22 @@
 package views
 
 templ Hero() {
-	<div class="hero bg-base-200 min-h-screen">
-		<div class="hero-content text-center">
-			<div class="max-w-md">
-				<h1 id="heroTitle" class="text-5xl font-bold">Hello there</h1>
-				<p class="py-6">
-					This site is a under construction. Come back soon!
-				</p>
+	<div class="flex bg-base-200">
+		<div class="hero h-[50vh] flex-1">
+			<div class="hero-content text-center">
+				<div class="max-w-md">
+					<div class="flex text-5xl font-bold text-secondary">
+						<h1 id="heroTitle" class="">Hello there</h1>
+						<h1 class="animate-blink ">_</h1>
+					</div>
+					<p class="py-6 w-4/5 text-lg">
+						My name is Bryson! I am a talented software developer. My focus lies in 
+						creating cost-saving, intuitive and fun to build 
+						software solutions.
+					</p>
+				</div>
 			</div>
-		</div>
-		<script>
+			<script>
 			function getRandomTime(minMs, maxMs) {
 				return Math.floor(Math.random() * (maxMs - minMs + 1)) + minMs;
 			}
@@ -38,5 +44,7 @@ templ Hero() {
 				updateText();
 			};
 		</script>
+		</div>
+		<div class="flex-1 justify-center items-center"><div>GIF</div></div>
 	</div>
 }

@@ -1,12 +1,60 @@
 package views
 
 templ NavBar() {
-	<div class="navbar bg-base-300 shadow-sm flex">
-		<div class="flex-1">
-			<a class="btn btn-ghost text-xl">Bryson Urie</a>
-		</div>
-		<div class="flex-none">
-			<input type="checkbox" value="synthwave" class="toggle theme-controller"/>
+	<div class="z-50 sticky top-0 navbar bg-base-300 shadow-sm flex justify-between">
+		<nav class="text-xl ml-2 space-x-3">
+			<span class="text-primary">
+				<a>
+					urie.dev
+				</a>
+			</span>
+			@NavBarLink("Projects", "projects")
+			@NavBarLink("Skills", "skills")
+			@NavBarLink("Experience", "experience")
+			@NavBarLink("Education", "education")
+			@NavBarLink("Contact", "contact")
+		</nav>
+		<div>
+			<input default="true" type="checkbox" value="synthwave" class="toggle theme-controller"/>
 		</div>
 	</div>
+	<script>
+		let navLinks = document.querySelectorAll('nav a');
+		let userScrolling = false
+		window.addEventListener('wheel', () => userScrolling = true, { passive: true })
+		window.addEventListener('touchstart', () => userScrolling = true, { passive: true })
+
+		window.addEventListener("scroll", () => {
+			if (!userScrolling) return;
+			userScrolling = false
+
+			let current = '';
+			const navIds = [
+				"projects",
+				"skills",
+				"experience",
+				"education",
+				"contact",
+			]
+
+			console.log("Scrolled")
+
+			for (const id of navIds) {
+				const elem = document.getElementById(id)
+				const yDiff = elem.getBoundingClientRect().top
+				if (yDiff <= 150) {
+					current = id
+				}			
+			}
+
+			for (const link of navLinks) {
+				link.classList.remove("text-secondary")
+				if (link.getAttribute('href') === '#' + current) {
+					link.classList.add('text-secondary'); 
+				}
+			}
+		})
+
+
+	</script>
 }

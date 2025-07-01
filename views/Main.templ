@@ -3,5 +3,12 @@ package views
 templ Hello(title, name string) {
 	@Layout(title) {
 		@Hero()
+		<div class="max-w-[1024px] min-w-[1024px] mx-auto">
+			@Projects()
+			@Skills()
+			@Experience()
+			@Education()
+			@Contact()
+		</div>
 	}
 }

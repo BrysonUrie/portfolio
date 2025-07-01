@@ -1,0 +1,15 @@
+package views
+
+templ NavBarLink(text, id string) {
+	<a
+		onclick={ templ.JSFuncCall("selectLink", id) }
+		id={ "link_" + id }
+		href={ templ.SafeURL("#" + id) }
+		class="relative inline-block group"
+	>
+		<span>{ text }</span>
+		<span
+			class="absolute left-0 -bottom-1 h-0.5 w-0 bg-secondary transition-all duration-300 group-hover:w-full"
+		></span>
+	</a>
+}
