@@ -1,0 +1,19 @@
+package views
+
+type SkillListData struct {
+	Title     string
+	SkillUrls []string
+}
+
+templ SkillList(data SkillListData) {
+	<ul class=" p-2 list bg-base-200 rounded-box shadow-md w-1/2">
+		<li class="p-4 pb-2 text-xl text-primary tracking-wide">{ data.Title }</li>
+		<li class="list-row">
+			<div class="flex space-x-5">
+				for _, url := range data.SkillUrls {
+					<img class=" rounded-box" src={ url }/>
+				}
+			</div>
+		</li>
+	</ul>
+}

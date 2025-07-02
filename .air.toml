@@ -16,7 +16,7 @@ tmp_dir = "tmp"
   full_bin = ""
   include_dir = ["cmd", "config", "pkg", "views"]
   include_ext = ["go", "tpl", "templ", "html"]
-  include_file = []
+  include_file = ["main.go"]
   kill_delay = "0s"
   log = "build-errors.log"
   poll = false
@@ -49,3 +49,6 @@ tmp_dir = "tmp"
 [screen]
   clear_on_rebuild = false
   keep_scroll = true
+
+[scripts]
+  tailwind = "npx tailwindcss -i ./assets/input.css -o ./public/styles.css --watch"

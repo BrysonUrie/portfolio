@@ -1,8 +1,8 @@
 package views
 
-var cards = map[string]cardDef{
-	"compiler": {
-		Title: "Compiler",
+var cards = []cardDef{
+	{
+		Title: "NASM Compiler",
 		Tools: []string{"Golang", "NASM"},
 		SkillsLearned: []string{
 			"Compiler design and construction",
@@ -13,13 +13,42 @@ var cards = map[string]cardDef{
 			"File I/O and process management in Go",
 		},
 		Link: "https://github.com/BrysonUrie/nasm-compiler",
-		Img:  "",
+		Img:  "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmiro.medium.com%2Fv2%2Fresize%3Afit%3A1023%2F1*mzBM4oXXxGH5ZdYMXUQQHQ.jpeg&f=1&nofb=1&ipt=5a12fa0498018493af8122ac44e354157b5afebf87af3c4918fb19e41d6b6f14",
+	},
+	{
+		Title: "Quickbase TypeScript Wrapper",
+		Tools: []string{"TypeScript", "JavaScript", "Axios"},
+		SkillsLearned: []string{
+			"Building and publishing TypeScript libraries",
+			"Strong typing and type safety in API wrappers",
+			"REST API integration using Axios",
+			"Lightweight library design",
+			"JavaScript interoperability",
+			"Quickbase API usage and abstraction",
+		},
+		Link: "https://github.com/Lil-Strudel/quickbase.ts",
+		Img:  "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid%2FOIP.8W7C7qLXsBZv8vSC9IenMwHaFj%3Fpid%3DApi&f=1&ipt=062e8806b007c5cac4f05e55aece4ff24ae0b6a0e73b8304cd6eb4bbddd64b69&ipo=images",
+	},
+	{
+		Title: "ReduSharper",
+		Tools: []string{"C#", "Shell"},
+		SkillsLearned: []string{
+			"Developing applications in C#",
+			"Shell scripting for automation",
+			"Object-oriented programming",
+			"Debugging and testing in C# environments",
+			"Project structuring and dependency management in .NET",
+		},
+		Link: "https://github.com/BrysonUrie/ReduSharper",
+		Img:  "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%2Fid%2FOIP.-nk7AMCqjUpAcIB2358pIAHaE8%3Fr%3D0%26pid%3DApi&f=1&ipt=4c60e9244207b9b4a0fe69185c39e814d2c52fc61fce1bf14e68f8a44a530728&ipo=images",
 	},
 }
 
 templ Projects() {
-	<div id="projects" class="my-5 text-5xl divider text-primary divider-primary divider-vertical divider-start">PROJECTS</div>
+	<div id="projects" class="my-5 mx-2 text-5xl divider text-primary divider-primary divider-vertical divider-start">PROJECTS</div>
 	<div class="space-y-3">
-		@ProjectCard(cards["compiler"])
+		for _, card := range cards {
+			@ProjectCard(card)
+		}
 	</div>
 }

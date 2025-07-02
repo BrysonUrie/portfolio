@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @theme {  
   --animate-blink: blink 1s step-start infinite;  
   @keyframes blink {    
